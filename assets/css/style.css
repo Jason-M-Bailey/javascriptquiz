@@ -1,0 +1,120 @@
+body {
+  font-family: Tahoma, "Segoe UI", Geneva, Verdana, sans-serif;
+}
+
+#wrapper {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 400px;
+  height: 500px;
+  border: 1px solid black;
+}
+
+#startTime {
+  background-color: black;
+  font-size: 2.5em;
+  padding: 3%;
+  position: relative;
+  width: 70%;
+  margin: 2% 15%;
+  color: white;
+}
+
+#startTime:hover {
+  background-color: rgb(75, 74, 74);
+}
+
+#questionsDiv {
+  margin: 20px;
+  border-radius: 10px;
+}
+
+li:hover {
+  background-color: rgb(75, 74, 74);
+}
+
+#currentTime {
+  float: right;
+}
+
+#goBack {
+  background-color: black;
+  position: relative;
+  padding: 1%;
+  font-size: 2em;
+  color: white;
+  width: 60%;
+  margin: 2% 20%;
+  text-align: center;
+  text-decoration: none;
+}
+
+#goBack:hover {
+  background-color: rgb(75, 74, 74);
+}
+
+#clear {
+  background-color: black;
+  position: relative;
+  padding: 1%;
+  font-size: 1em;
+  color: white;
+  text-align: center;
+  width: 50%;
+  margin: 2% 25%;
+}
+
+#clear:hover {
+  background-color: rgb(75, 74, 74);
+}
+
+button {
+  border-radius: 10px;
+}
+
+textarea {
+  width: 90%;
+  margin: 20px;
+}
+
+#Submit {
+  background-color: black;
+  margin-left: 33%;
+  padding: 15px 32px;
+  font-size: 20px;
+  color: white;
+}
+
+#Submit:hover {
+  background-color: rgb(75, 74, 74);
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  margin-bottom: 20px;
+  width: 50%;
+  border: 1px solid lightgray;
+}
+
+h1 {
+  text-align: center;
+}
+
+li {
+  background-color: black;
+  margin-top: 10px;
+  padding: 5px 15px;
+  width: 80%;
+  font-size: 18px;
+  color: white;
+  border-radius: 10px;
+}
+
+#createDiv {
+  margin-top: 20px;
+  border-top: 1px solid lightgray;
+}
