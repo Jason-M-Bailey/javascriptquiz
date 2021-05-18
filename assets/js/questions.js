@@ -1,30 +1,35 @@
 var questions = [
   {
     title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    choices: ["Strings", "Booleans", "Alerts", "Numbers"],
+    answer: "Alerts",
   },
   {
     title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+    choices: ["Quotes", "Curly Brackets", "Parentheses", "Square Brackets"],
+    answer: "Parentheses",
   },
   {
     title: "Arrays in Javascript can be used to store ____.",
-    choices: ["numbers and strings", "other arrays", "booleans", "all of the above",],
-    answer: "all of the above",
+    choices: [
+      "Numbers And Strings",
+      "Other Arrays",
+      "Booleans",
+      "All Of The Above",
+    ],
+    answer: "All Of The Above",
   },
   {
     title:
       "String values must be enclosed within ____ when being assigned to variables.",
-    choices: ["commas", "curly brackets", "quotes", "parenthesis"],
-    answer: "quotes",
+    choices: ["Commas", "Curly brackets", "Quotes", "Parenthesis"],
+    answer: "Quotes",
   },
   {
     title:
       "A very useful tool for used during development and debugging for printing content to the debugger is:",
-    choices: ["Javascript", "terminal / bash", "for loops", "console log"],
-    answer: "console log",
+    choices: ["Javascript", "Terminal / Bash", "For Loops", "Console Log"],
+    answer: "Console Log",
   },
 ];
 
@@ -37,14 +42,17 @@ var wrapper = document.querySelector("#wrapper");
 var secondsLeft = 90;
 var holdInterval = 0;
 var penalty = 10;
+var bonus = 10;
 var ulCreate = document.createElement("ul");
 
+// when user clicks start quiz button, start the timer
 timer.addEventListener("click", function () {
   if (holdInterval === 0) {
     holdInterval = setInterval(function () {
       secondsLeft--;
       currentTime.textContent = "Time: " + secondsLeft;
 
+      // if clock reaches 0, end game
       if (secondsLeft <= 0) {
         clearInterval(holdInterval);
         allDone();
@@ -55,15 +63,17 @@ timer.addEventListener("click", function () {
   render(questionIndex);
 });
 
+// pull the questions in from the array
 function render(questionIndex) {
   questionsDiv.innerHTML = "";
   ulCreate.innerHTML = "";
-  
+
   for (var i = 0; i < questions.length; i++) {
     var userQuestion = questions[questionIndex].title;
-    var userChoices = questions[questionIndex].choices;
+    var userChoices = questions[questionIndex].choices; // how to randomize the order of the answers?
     questionsDiv.textContent = userQuestion;
   }
+
 
   userChoices.forEach(function (newItem) {
     var listItem = document.createElement("li");
@@ -74,6 +84,7 @@ function render(questionIndex) {
   });
 }
 
+// compare user answer v correct answer
 function compare(event) {
   var element = event.target;
 
@@ -81,7 +92,8 @@ function compare(event) {
     var createDiv = document.createElement("div");
     createDiv.setAttribute("id", "createDiv");
     if (element.textContent == questions[questionIndex].answer) {
-      score++;
+      score++; // lets add 10 points for each correct answer
+      secondsLeft = secondsLeft + bonus;
       createDiv.textContent =
         "Correct! The answer is:  " + questions[questionIndex].answer;
     } else {
@@ -107,6 +119,7 @@ function compare(event) {
   }
   questionsDiv.appendChild(createDiv);
 }
+
 
 function allDone() {
   questionsDiv.innerHTML = "";
@@ -160,7 +173,7 @@ function allDone() {
       allScores.push(finalScore);
       var newScore = JSON.stringify(allScores);
       localStorage.setItem("allScores", newScore);
-      window.location.replace("./HighScores.html");
+      window.location.replace("./high-scores.html");
     }
   });
 }
