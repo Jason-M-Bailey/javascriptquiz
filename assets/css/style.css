@@ -2,6 +2,11 @@ body {
   font-family: Tahoma, "Segoe UI", Geneva, Verdana, sans-serif;
 }
 
+.highscores {
+font-family: monospace;
+padding: 2%;
+}
+
 #wrapper {
   position: absolute;
   left: 5%;
@@ -9,6 +14,7 @@ body {
   width: 400px;
   height: 500px;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 #startTime {
