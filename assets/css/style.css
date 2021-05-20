@@ -39,14 +39,44 @@ body {
 li:hover {
   background-color: rgb(75, 74, 74);
 }
-
+/* attempting to get a pulsing counter */
 #currentTime {
   float: right;
   margin: 3px;
-  padding: 3px;
-  font-size: 1.2em;
+  padding: 3%;
+  font-size: 1em;
+  /*background-color: black;
+  color: white;
+  border-radius: 50%;
+  position: absolute; 
+  top: 0%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+	pointer-events: none;
+	transition: top 0.3s ease-out, left 0.3s ease-out; */
+}
+/*
+#waves {
+  display: block;
+	background: transparent;
+	position: absolute;
+	border: 10px solid black;
+  border-radius: 50%;
+	animation: waves 1s cubic-bezier(0.18, 0.92, 0.41, 1.01) infinite;
+	transform: translate(-50%, -50%);
 }
 
+@keyframes waves {
+	from {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(5);
+	}
+}
+*/
 #goBack {
   background-color: black;
   position: relative;

@@ -47,12 +47,12 @@ var ulCreate = document.createElement("ul");
 
 // when user clicks start quiz button, start the timer
 timer.addEventListener("click", function () {
-
+  // why does timer take a second to render?
 
   if (holdInterval === 0) {
     holdInterval = setInterval(function () {
       secondsLeft--;
-      currentTime.textContent = "Time: " + secondsLeft;
+      currentTime.textContent = "Seconds left: " + secondsLeft;
 
       // if clock reaches 0, end game
       if (secondsLeft <= 0) {
