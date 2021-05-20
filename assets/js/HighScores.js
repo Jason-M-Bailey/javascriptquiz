@@ -28,6 +28,7 @@ goBack.addEventListener("click", function () {
 clear.addEventListener("click", function () {
   localStorage.clear(); 
   location.reload();
+  window.location.replace("./index.html");
 });
 
 console.log(allScores);

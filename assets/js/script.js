@@ -28,6 +28,11 @@ var questions = [
   },
 ];
 
+// what if? create user choice on how many questions to answer
+// multiply time * user choice of # of questions
+
+// user gets 50/50 - button to eliminate 2 wrong answers
+
 var score = 0;
 var questionIndex = 0;
 var currentTime = document.querySelector("#currentTime");
