@@ -10,9 +10,9 @@ var questions = [
     answer: "Parentheses",
   },
   {
-    title: "Arrays in Javascript can be used to store ____.",
-    choices: ["Numbers And Strings", "Other Arrays", "Booleans", "All Of The Above"],
-    answer: "All Of The Above",
+    title: "Arrays in Javascript cannot be used to store ____.",
+    choices: ["Numbers And Strings", "Other Arrays", "Booleans", "Functions"],
+    answer: "Functions",
   },
   {
     title:
@@ -95,14 +95,11 @@ function compare(event) {
     var createDiv = document.createElement("div");
     createDiv.setAttribute("id", "createDiv");
     if (element.textContent == questions[questionIndex].answer) {
-      score++; // lets add 10 points for each correct answer
       secondsLeft = secondsLeft + bonus;
-      createDiv.textContent =
-        "Correct! The answer is:  " + questions[questionIndex].answer;
+      createDiv.textContent = "Correct! 10 seconds added!";
     } else {
       secondsLeft = secondsLeft - penalty;
-      createDiv.textContent =
-        "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+      createDiv.textContent = "Wrong! 10 seconds deducted!";
     }
   }
   questionIndex++;

@@ -42,6 +42,9 @@ li:hover {
 
 #currentTime {
   float: right;
+  margin: 3px;
+  padding: 3px;
+  font-size: 1.2em;
 }
 
 #goBack {
