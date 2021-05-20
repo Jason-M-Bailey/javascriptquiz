@@ -11,12 +11,7 @@ var questions = [
   },
   {
     title: "Arrays in Javascript can be used to store ____.",
-    choices: [
-      "Numbers And Strings",
-      "Other Arrays",
-      "Booleans",
-      "All Of The Above",
-    ],
+    choices: ["Numbers And Strings", "Other Arrays", "Booleans", "All Of The Above",],
     answer: "All Of The Above",
   },
   {
@@ -119,7 +114,6 @@ function compare(event) {
   }
   questionsDiv.appendChild(createDiv);
 }
-
 
 function allDone() {
   questionsDiv.innerHTML = "";
