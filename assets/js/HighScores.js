@@ -6,6 +6,11 @@ var goBack = document.querySelector("#goBack");
 var allScores = localStorage.getItem("allScores");
 allScores = JSON.parse(allScores);
 
+// sorts .score in the array, descending order 
+allScores = allScores.sort(function (current, next) {
+  return next.score - current.score
+});
+
 if (allScores !== null) {
   for (var i = 0; i < allScores.length; i++) {
     var createLi = document.createElement("li");

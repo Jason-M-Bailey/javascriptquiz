@@ -11,7 +11,7 @@ var questions = [
   },
   {
     title: "Arrays in Javascript can be used to store ____.",
-    choices: ["Numbers And Strings", "Other Arrays", "Booleans", "All Of The Above",],
+    choices: ["Numbers And Strings", "Other Arrays", "Booleans", "All Of The Above"],
     answer: "All Of The Above",
   },
   {
@@ -42,6 +42,8 @@ var ulCreate = document.createElement("ul");
 
 // when user clicks start quiz button, start the timer
 timer.addEventListener("click", function () {
+
+
   if (holdInterval === 0) {
     holdInterval = setInterval(function () {
       secondsLeft--;
@@ -68,7 +70,13 @@ function render(questionIndex) {
     var userChoices = questions[questionIndex].choices; // how to randomize the order of the answers?
     questionsDiv.textContent = userQuestion;
   }
+  console.log(questions[questionIndex].choices, "before")
+  
+  questions[questionIndex].choices = questions[questionIndex].choices.sort(function () {
+    return Math.random() - 0.5
+  })
 
+  console.log(questions[questionIndex].choices, "after")
 
   userChoices.forEach(function (newItem) {
     var listItem = document.createElement("li");
