@@ -65,24 +65,30 @@ function render(questionIndex) {
   questionsDiv.innerHTML = "";
   ulCreate.innerHTML = "";
 
+  // loop through the questions 
   for (var i = 0; i < questions.length; i++) {
     var userQuestion = questions[questionIndex].title;
-    var userChoices = questions[questionIndex].choices; // how to randomize the order of the answers?
+    var userChoices = questions[questionIndex].choices;
     questionsDiv.textContent = userQuestion;
   }
-  console.log(questions[questionIndex].choices, "before")
+
+  // console.log(questions[questionIndex].choices, "before")
   
+  // randomize order of multiple choice
   questions[questionIndex].choices = questions[questionIndex].choices.sort(function () {
     return Math.random() - 0.5
   })
 
-  console.log(questions[questionIndex].choices, "after")
+  // console.log(questions[questionIndex].choices, "after")
 
+  // create multiple choice
   userChoices.forEach(function (newItem) {
     var listItem = document.createElement("li");
     listItem.textContent = newItem;
     questionsDiv.appendChild(ulCreate);
     ulCreate.appendChild(listItem);
+
+    // compare user click v correct answer
     listItem.addEventListener("click", compare);
   });
 }
@@ -94,32 +100,31 @@ function compare(event) {
   if (element.matches("li")) {
     var createDiv = document.createElement("div");
     createDiv.setAttribute("id", "createDiv");
+    
+    // add time for correct answer 
     if (element.textContent == questions[questionIndex].answer) {
       secondsLeft = secondsLeft + bonus;
       createDiv.textContent = "Correct! 10 seconds added!";
-    } else {
+    } else { // deduct time for incorrect answer 
       secondsLeft = secondsLeft - penalty;
       createDiv.textContent = "Wrong! 10 seconds deducted!";
     }
   }
+
+  // move on to next question
   questionIndex++;
 
+  // when out of questions...
   if (questionIndex >= questions.length) {
     allDone();
-    createDiv.textContent =
-      "End of quiz!" +
-      " " +
-      "You got  " +
-      score +
-      "/" +
-      questions.length +
-      " Correct!";
+    createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
   } else {
     render(questionIndex);
   }
   questionsDiv.appendChild(createDiv);
 }
 
+// out of questions screen 
 function allDone() {
   questionsDiv.innerHTML = "";
   currentTime.innerHTML = "";
