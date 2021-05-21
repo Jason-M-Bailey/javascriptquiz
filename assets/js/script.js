@@ -32,6 +32,14 @@ var questions = [
 // multiply time * user choice of # of questions
 
 // user gets 50/50 - button to eliminate 2 wrong answers
+// on.click...
+// append answer as first li
+// evaluate index != answer, if true append
+
+// correct answer in last spot of array
+// randomly generate 1-4
+// if questions.choice = answer
+// append.correct answer
 
 var score = 0;
 var questionIndex = 0;
@@ -48,7 +56,7 @@ var ulCreate = document.createElement("ul");
 // when user clicks start quiz button, start the timer
 timer.addEventListener("click", function () {
   // why does timer take a second to render?
-
+  
   if (holdInterval === 0) {
     holdInterval = setInterval(function () {
       currentTime.textContent = "Seconds left: " + secondsLeft;
