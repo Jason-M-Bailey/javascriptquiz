@@ -46,15 +46,29 @@ li:hover {
   padding: 3%;
   font-size: 1em;
   /*background-color: black;
-  color: white;
-  border-radius: 50%;
+  color: white; */
+  border-radius: 5%;
   position: absolute; 
-  top: 0%;
-  right: 0%;
+  top: 5%;
+  right: -10%;
   transform: translate(-50%, -50%);
 	pointer-events: none;
-	transition: top 0.3s ease-out, left 0.3s ease-out; */
+	transition: top 0.3s ease-out, left 0.3s ease-out; 
+  animation: pulse 1s infinite;
 }
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 /*
 #waves {
   display: block;

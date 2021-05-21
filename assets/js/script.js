@@ -39,7 +39,7 @@ var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startTime");
 var questionsDiv = document.querySelector("#questionsDiv");
 var wrapper = document.querySelector("#wrapper");
-var secondsLeft = 90;
+var secondsLeft = 60;
 var holdInterval = 0;
 var penalty = 10;
 var bonus = 10;
@@ -51,14 +51,14 @@ timer.addEventListener("click", function () {
 
   if (holdInterval === 0) {
     holdInterval = setInterval(function () {
-      secondsLeft--;
       currentTime.textContent = "Seconds left: " + secondsLeft;
+      secondsLeft--;
 
       // if clock reaches 0, end game
       if (secondsLeft <= 0) {
         clearInterval(holdInterval);
         allDone();
-        currentTime.textContent = "Time's up!";
+        currentTime.textContent = ""; // removed "Time's up!"
       }
     }, 1000);
   }
