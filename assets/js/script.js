@@ -208,16 +208,16 @@ function allDone() {
       };
       console.log(finalScore);
 
-      // pull scores from local storage
+      // use local storage to populate high scores page
       var allScores = localStorage.getItem("allScores");
       if (allScores === null) {
         allScores = [];
       } else {
-        allScores = JSON.parse(allScores); // parse items in array
+        allScores = JSON.parse(allScores); 
       }
-      allScores.push(finalScore);
-      var newScore = JSON.stringify(allScores);
-      localStorage.setItem("allScores", newScore);
+      allScores.push(finalScore); 
+      var newScore = JSON.stringify(allScores); 
+      localStorage.setItem("allScores", newScore); 
       window.location.replace("./high-scores.html");
     }
   });
