@@ -59,14 +59,14 @@ timer.addEventListener("click", function () {
   
   if (holdInterval === 0) {
     holdInterval = setInterval(function () {
-      currentTime.textContent = "Seconds left: " + secondsLeft;
+      currentTime.textContent = secondsLeft + " seconds left";
       secondsLeft--;
 
       // if clock reaches 0, end game
       if (secondsLeft <= 0) {
         clearInterval(holdInterval);
         allDone();
-        currentTime.textContent = ""; // removed "Time's up!"
+        // currentTime.textContent = ""; // removed "Time's up!"
       }
     }, 1000);
   }
@@ -116,7 +116,8 @@ function compare(event) {
     
     // add time for correct answer 
     if (element.textContent == questions[questionIndex].answer) {
-      secondsLeft = secondsLeft + bonus;
+      secondsLeft = secondsLeft + bonus; 
+      score = score + 1; // add 1 to score for each correct answer for final tally
       createDiv.textContent = "Correct! 10 seconds added!";
     } else { // deduct time for incorrect answer 
       secondsLeft = secondsLeft - penalty;
@@ -139,16 +140,23 @@ function compare(event) {
 
 // out of questions screen 
 function allDone() {
+  // clear screen of old content 
   questionsDiv.innerHTML = "";
   currentTime.innerHTML = "";
+
+  // challenge: display different content for 0 correct, 1 correct, etc...
+
+  // create new content to display
   var createH1 = document.createElement("h1");
   createH1.setAttribute("id", "createH1");
   createH1.textContent = "All Done!";
   questionsDiv.appendChild(createH1);
+
+  // more new content
   var createP = document.createElement("p");
   createP.setAttribute("id", "createP");
   questionsDiv.appendChild(createP);
-  if (secondsLeft >= 0) {
+    if (secondsLeft >= 0) {
     var timeRemaining = secondsLeft;
     var createP2 = document.createElement("p");
     clearInterval(holdInterval);
@@ -156,36 +164,45 @@ function allDone() {
     questionsDiv.appendChild(createP2);
   }
 
+  // more new content 
   var createLabel = document.createElement("label");
   createLabel.setAttribute("id", "createLabel");
-  createLabel.textContent = "Enter your initials: ";
+  createLabel.textContent = "Enter your name: ";
   questionsDiv.appendChild(createLabel);
+
+  // input field for name 
   var createInput = document.createElement("input");
   createInput.setAttribute("type", "text");
-  createInput.setAttribute("id", "initials");
+  createInput.setAttribute("id", "initials"); // update initials to name
   createInput.textContent = "";
   questionsDiv.appendChild(createInput);
+
+  // submit button 
   var createSubmit = document.createElement("button");
   createSubmit.setAttribute("type", "submit");
   createSubmit.setAttribute("id", "Submit");
   createSubmit.textContent = "Submit";
   questionsDiv.appendChild(createSubmit);
-  createSubmit.addEventListener("click", function () {
-    var initials = createInput.value;
 
-    if (initials === null) {
+  // 
+  createSubmit.addEventListener("click", function () {
+    var initials = createInput.value; // update to name 
+
+    if (initials === null) { // update to name 
       console.log("No value entered!");
     } else {
       var finalScore = {
-        initials: initials,
+        initials: initials, // update to name
         score: timeRemaining,
       };
       console.log(finalScore);
+
+      // pull scores from local storage 
       var allScores = localStorage.getItem("allScores");
       if (allScores === null) {
         allScores = [];
       } else {
-        allScores = JSON.parse(allScores);
+        allScores = JSON.parse(allScores); // parse items in array
       }
       allScores.push(finalScore);
       var newScore = JSON.stringify(allScores);
