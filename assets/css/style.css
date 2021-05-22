@@ -18,7 +18,7 @@ body {
 }
 
 #startTime {
-  background-color: black;
+  background-color: #1abc9c;
   font-size: 2.5em;
   padding: 3%;
   position: relative;
@@ -28,7 +28,7 @@ body {
 }
 
 #startTime:hover {
-  background-color: rgb(75, 74, 74);
+  background-color: #127e68;
 }
 
 #questionsDiv {
@@ -42,15 +42,11 @@ body {
   margin: 3px;
   padding: 3%;
   font-size: 1em;
-  /*background-color: black;
-  color: white; */
   border-radius: 5%;
   position: absolute;
   top: 5%;
   right: -10%;
   transform: translate(-50%, -50%);
-  /* pointer-events: none; */
-  /* transition: top 0.3s ease-out, left 0.3s ease-out; */
   animation: pulse 1s infinite;
 }
 
@@ -66,31 +62,8 @@ body {
   }
 }
 
-/*
-#waves {
-  display: block;
-	background: transparent;
-	position: absolute;
-	border: 10px solid black;
-  border-radius: 50%;
-	animation: waves 1s cubic-bezier(0.18, 0.92, 0.41, 1.01) infinite;
-	transform: translate(-50%, -50%);
-}
-
-@keyframes waves {
-	from {
-		opacity: 1;
-		transform: translate(-50%, -50%) scale(1);
-	}
-	to {
-		opacity: 0;
-		transform: translate(-50%, -50%) scale(5);
-	}
-}
-*/
-
 #goBack {
-  background-color: black;
+  background-color: #1abc9c;
   position: relative;
   padding: 1%;
   font-size: 2em;
@@ -102,11 +75,11 @@ body {
 }
 
 #goBack:hover {
-  background-color: rgb(75, 74, 74);
+  background-color: #127e68;
 }
 
 #clear {
-  background-color: black;
+  background-color: #16a085;
   position: relative;
   padding: 1%;
   font-size: 1em;
@@ -117,7 +90,7 @@ body {
 }
 
 #clear:hover {
-  background-color: rgb(75, 74, 74);
+  background-color: #127e68;
 }
 
 button {
@@ -130,7 +103,7 @@ textarea {
 }
 
 #Submit {
-  background-color: black;
+  background-color: #1abc9c;
   margin-left: 33%;
   padding: 15px 32px;
   font-size: 20px;
@@ -138,7 +111,7 @@ textarea {
 }
 
 #Submit:hover {
-  background-color: rgb(75, 74, 74);
+  background-color: #127e68;
 }
 
 label {
@@ -156,7 +129,7 @@ h1 {
 }
 
 li {
-  background-color: black;
+  background-color: #3498db;
   margin-top: 10px;
   padding: 5px 15px;
   width: 80%;
@@ -167,11 +140,11 @@ li {
 }
 
 li:nth-child(even) {
-  background-color:rgb(49, 49, 49);
+  background-color:#9b59b6;
 }
 
 li:hover {
-  background-color: rgb(98, 98, 98);
+  background-color: #34495e;
   border: 1px inset white;
 }
 
