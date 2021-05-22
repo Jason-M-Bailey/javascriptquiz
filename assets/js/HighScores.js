@@ -11,11 +11,11 @@ allScores = allScores.sort(function (current, next) {
 });
 
 // connect initials to score
-// change to name 
+// change to name
 if (allScores !== null) {
   for (var i = 0; i < allScores.length; i++) {
     var createLi = document.createElement("li");
-    createLi.textContent = allScores[i].score + " -- " + allScores[i].initials; // change to name 
+    createLi.textContent = allScores[i].score + " -- " + allScores[i].name; // change initials to name
     highScore.appendChild(createLi);
   }
 }

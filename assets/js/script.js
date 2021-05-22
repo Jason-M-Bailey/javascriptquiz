@@ -42,6 +42,7 @@ var questions = [
 // append.correct answer
 
 var score = 0;
+var count = 0;
 var questionIndex = 0;
 var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startTime");
@@ -120,11 +121,13 @@ function compare(event) {
     if (element.textContent == questions[questionIndex].answer) {
       secondsLeft = secondsLeft + bonus;
       score = score + 1; // add 1 to score for each correct answer for final tally
-      createDiv.textContent = "Correct! 10 seconds added!";
+      count = count + 1;
+      createDiv.textContent = "Correct! 10 seconds added! You have " + score + " of " + count + " correct so far.";
     } else {
       // deduct time for incorrect answer
       secondsLeft = secondsLeft - penalty;
-      createDiv.textContent = "Wrong! 10 seconds deducted!";
+      count = count + 1;
+      createDiv.textContent = "Wrong! 10 seconds deducted! You have " + score + " of " + count + " correct so far.";
     }
   }
 
@@ -135,13 +138,11 @@ function compare(event) {
   if (questionIndex >= questions.length) {
     allDone();
     createDiv.textContent =
-      "End of quiz!" +
-      " " +
-      "You got  " +
+      "End of quiz! You got  " +
       score +
-      "/" +
+      " of " +
       questions.length +
-      " Correct!";
+      " correct.";
   } else {
     render(questionIndex);
   }
@@ -153,8 +154,6 @@ function allDone() {
   // clear screen of old content
   questionsDiv.innerHTML = "";
   currentTime.innerHTML = "";
-
-  // challenge: display different content for 0 correct, 1 correct, etc...
 
   // create new content to display
   var createH1 = document.createElement("h1");
@@ -213,11 +212,11 @@ function allDone() {
       if (allScores === null) {
         allScores = [];
       } else {
-        allScores = JSON.parse(allScores); 
+        allScores = JSON.parse(allScores);
       }
-      allScores.push(finalScore); 
-      var newScore = JSON.stringify(allScores); 
-      localStorage.setItem("allScores", newScore); 
+      allScores.push(finalScore);
+      var newScore = JSON.stringify(allScores);
+      localStorage.setItem("allScores", newScore);
       window.location.replace("./high-scores.html");
     }
   });
