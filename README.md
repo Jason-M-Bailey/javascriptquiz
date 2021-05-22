@@ -1,3 +1,8 @@
+Build a timed coding quiz with multiple-choice questions, time is added or subtracted based on answering correctly or incorrectly. Enter your name to track your score and compare to other highscores. 
+
+Repository: https://github.com/Jason-M-Bailey/javascriptquiz
+Deployed page: https://jason-m-bailey.github.io/javascriptquiz/
+
 # 04 Web APIs: Code Quiz
 
 ## Your Task

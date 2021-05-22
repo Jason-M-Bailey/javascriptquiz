@@ -56,7 +56,7 @@ var ulCreate = document.createElement("ul");
 // when user clicks start quiz button, start the timer
 timer.addEventListener("click", function () {
   // why does timer take a second to render?
-  
+
   if (holdInterval === 0) {
     holdInterval = setInterval(function () {
       currentTime.textContent = secondsLeft + " seconds left";
@@ -78,7 +78,7 @@ function render(questionIndex) {
   questionsDiv.innerHTML = "";
   ulCreate.innerHTML = "";
 
-  // loop through the questions 
+  // loop through the questions
   for (var i = 0; i < questions.length; i++) {
     var userQuestion = questions[questionIndex].title;
     var userChoices = questions[questionIndex].choices;
@@ -86,11 +86,13 @@ function render(questionIndex) {
   }
 
   // console.log(questions[questionIndex].choices, "before")
-  
+
   // randomize order of multiple choice
-  questions[questionIndex].choices = questions[questionIndex].choices.sort(function () {
-    return Math.random() - 0.5
-  })
+  questions[questionIndex].choices = questions[questionIndex].choices.sort(
+    function () {
+      return Math.random() - 0.5;
+    }
+  );
 
   // console.log(questions[questionIndex].choices, "after")
 
@@ -113,13 +115,14 @@ function compare(event) {
   if (element.matches("li")) {
     var createDiv = document.createElement("div");
     createDiv.setAttribute("id", "createDiv");
-    
-    // add time for correct answer 
+
+    // add time for correct answer
     if (element.textContent == questions[questionIndex].answer) {
-      secondsLeft = secondsLeft + bonus; 
+      secondsLeft = secondsLeft + bonus;
       score = score + 1; // add 1 to score for each correct answer for final tally
       createDiv.textContent = "Correct! 10 seconds added!";
-    } else { // deduct time for incorrect answer 
+    } else {
+      // deduct time for incorrect answer
       secondsLeft = secondsLeft - penalty;
       createDiv.textContent = "Wrong! 10 seconds deducted!";
     }
@@ -131,16 +134,23 @@ function compare(event) {
   // when out of questions...
   if (questionIndex >= questions.length) {
     allDone();
-    createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+    createDiv.textContent =
+      "End of quiz!" +
+      " " +
+      "You got  " +
+      score +
+      "/" +
+      questions.length +
+      " Correct!";
   } else {
     render(questionIndex);
   }
   questionsDiv.appendChild(createDiv);
 }
 
-// out of questions screen 
+// out of questions screen
 function allDone() {
-  // clear screen of old content 
+  // clear screen of old content
   questionsDiv.innerHTML = "";
   currentTime.innerHTML = "";
 
@@ -156,7 +166,7 @@ function allDone() {
   var createP = document.createElement("p");
   createP.setAttribute("id", "createP");
   questionsDiv.appendChild(createP);
-    if (secondsLeft >= 0) {
+  if (secondsLeft >= 0) {
     var timeRemaining = secondsLeft;
     var createP2 = document.createElement("p");
     clearInterval(holdInterval);
@@ -164,31 +174,32 @@ function allDone() {
     questionsDiv.appendChild(createP2);
   }
 
-  // more new content 
+  // more new content
   var createLabel = document.createElement("label");
   createLabel.setAttribute("id", "createLabel");
   createLabel.textContent = "Enter your name: ";
   questionsDiv.appendChild(createLabel);
 
-  // input field for name 
+  // input field for name
   var createInput = document.createElement("input");
   createInput.setAttribute("type", "text");
   createInput.setAttribute("id", "initials"); // update initials to name
   createInput.textContent = "";
   questionsDiv.appendChild(createInput);
 
-  // submit button 
+  // submit button
   var createSubmit = document.createElement("button");
   createSubmit.setAttribute("type", "submit");
   createSubmit.setAttribute("id", "Submit");
   createSubmit.textContent = "Submit";
   questionsDiv.appendChild(createSubmit);
 
-  // 
+  //
   createSubmit.addEventListener("click", function () {
-    var initials = createInput.value; // update to name 
+    var initials = createInput.value; // update to name
 
-    if (initials === null) { // update to name 
+    if (initials === null) {
+      // update to name
       console.log("No value entered!");
     } else {
       var finalScore = {
@@ -197,7 +208,7 @@ function allDone() {
       };
       console.log(finalScore);
 
-      // pull scores from local storage 
+      // pull scores from local storage
       var allScores = localStorage.getItem("allScores");
       if (allScores === null) {
         allScores = [];

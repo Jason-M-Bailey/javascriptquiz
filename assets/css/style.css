@@ -13,7 +13,7 @@ body {
   top: 5%;
   width: 400px;
   padding-bottom: 10%;
-  border: 1px solid black;
+  border: 1px dotted black;
   border-radius: 10px;
 }
 
@@ -39,7 +39,8 @@ body {
 li:hover {
   background-color: rgb(75, 74, 74);
 }
-/* attempting to get a pulsing counter */
+
+/* pulsing counter */
 #currentTime {
   float: right;
   margin: 3px;
@@ -48,12 +49,12 @@ li:hover {
   /*background-color: black;
   color: white; */
   border-radius: 5%;
-  position: absolute; 
+  position: absolute;
   top: 5%;
   right: -10%;
   transform: translate(-50%, -50%);
-	pointer-events: none;
-	transition: top 0.3s ease-out, left 0.3s ease-out; 
+  /* pointer-events: none; */
+  /* transition: top 0.3s ease-out, left 0.3s ease-out; */
   animation: pulse 1s infinite;
 }
 
@@ -91,6 +92,7 @@ li:hover {
 	}
 }
 */
+
 #goBack {
   background-color: black;
   position: relative;
