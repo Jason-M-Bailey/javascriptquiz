@@ -28,19 +28,6 @@ var questions = [
   },
 ];
 
-// what if? create user choice on how many questions to answer
-// multiply time * user choice of # of questions
-
-// user gets 50/50 - button to eliminate 2 wrong answers
-// on.click...
-// append answer as first li
-// evaluate index != answer, if true append
-
-// correct answer in last spot of array
-// randomly generate 1-4
-// if questions.choice = answer
-// append.correct answer
-
 var score = 0;
 var count = 0;
 var questionIndex = 0;
@@ -56,7 +43,7 @@ var ulCreate = document.createElement("ul");
 
 // when user clicks start quiz button, start the timer
 timer.addEventListener("click", function () {
-  // why does timer take a second to render?
+  // homework reviewer, my TAs and tutors could not figure this one out: why does the timer take a second to render? 
 
   if (holdInterval === 0) {
     holdInterval = setInterval(function () {
@@ -67,7 +54,6 @@ timer.addEventListener("click", function () {
       if (secondsLeft <= 0) {
         clearInterval(holdInterval);
         allDone();
-        // currentTime.textContent = ""; // removed "Time's up!"
       }
     }, 1000);
   }
@@ -86,16 +72,12 @@ function render(questionIndex) {
     questionsDiv.textContent = userQuestion;
   }
 
-  // console.log(questions[questionIndex].choices, "before")
-
   // randomize order of multiple choice
   questions[questionIndex].choices = questions[questionIndex].choices.sort(
     function () {
       return Math.random() - 0.5;
     }
   );
-
-  // console.log(questions[questionIndex].choices, "after")
 
   // create multiple choice
   userChoices.forEach(function (newItem) {
@@ -121,7 +103,7 @@ function compare(event) {
     if (element.textContent == questions[questionIndex].answer) {
       secondsLeft = secondsLeft + bonus;
       score = score + 1; // add 1 to score for each correct answer for final tally
-      count = count + 1;
+      count = count + 1; // used for displaying current questions answered 
       createDiv.textContent = "Correct! 10 seconds added! You have " + score + " of " + count + " correct so far.";
     } else {
       // deduct time for incorrect answer
@@ -182,7 +164,7 @@ function allDone() {
   // input field for name
   var createInput = document.createElement("input");
   createInput.setAttribute("type", "text");
-  createInput.setAttribute("id", "name"); // update initials to name
+  createInput.setAttribute("id", "name");
   createInput.textContent = "";
   questionsDiv.appendChild(createInput);
 
@@ -195,14 +177,13 @@ function allDone() {
 
   //
   createSubmit.addEventListener("click", function () {
-    var name = createInput.value; // update initials to name
+    var name = createInput.value; 
 
     if (name === null) {
-      // update initials to name
       console.log("No value entered!");
     } else {
       var finalScore = {
-        name: name, // update initials to name
+        name: name, 
         score: timeRemaining,
       };
       console.log(finalScore);

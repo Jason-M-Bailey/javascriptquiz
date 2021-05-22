@@ -10,12 +10,11 @@ allScores = allScores.sort(function (current, next) {
   return next.score - current.score;
 });
 
-// connect initials to score
-// change to name
+// connect name to score
 if (allScores !== null) {
   for (var i = 0; i < allScores.length; i++) {
     var createLi = document.createElement("li");
-    createLi.textContent = allScores[i].score + " -- " + allScores[i].name; // change initials to name
+    createLi.textContent = allScores[i].score + " -- " + allScores[i].name;
     highScore.appendChild(createLi);
   }
 }
