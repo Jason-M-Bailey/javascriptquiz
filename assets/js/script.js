@@ -183,7 +183,7 @@ function allDone() {
   // input field for name
   var createInput = document.createElement("input");
   createInput.setAttribute("type", "text");
-  createInput.setAttribute("id", "initials"); // update initials to name
+  createInput.setAttribute("id", "name"); // update initials to name
   createInput.textContent = "";
   questionsDiv.appendChild(createInput);
 
@@ -196,14 +196,14 @@ function allDone() {
 
   //
   createSubmit.addEventListener("click", function () {
-    var initials = createInput.value; // update to name
+    var name = createInput.value; // update initials to name
 
-    if (initials === null) {
-      // update to name
+    if (name === null) {
+      // update initials to name
       console.log("No value entered!");
     } else {
       var finalScore = {
-        initials: initials, // update to name
+        name: name, // update initials to name
         score: timeRemaining,
       };
       console.log(finalScore);
