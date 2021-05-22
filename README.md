@@ -3,6 +3,11 @@ Build a timed coding quiz with multiple-choice questions, time is added or subtr
 Repository: https://github.com/Jason-M-Bailey/javascriptquiz
 Deployed page: https://jason-m-bailey.github.io/javascriptquiz/
 
+![JavaScript Quiz 01](https://user-images.githubusercontent.com/23285473/119226523-9413e980-bad7-11eb-99b9-a77c449b0e15.jpg)
+![JavaScript Quiz 02](https://user-images.githubusercontent.com/23285473/119226525-96764380-bad7-11eb-9723-68f7e8765c25.jpg)
+![JavaScript Quiz 03](https://user-images.githubusercontent.com/23285473/119226528-98400700-bad7-11eb-83fe-aec599e4c2a1.jpg)
+
+
 # 04 Web APIs: Code Quiz
 
 ## Your Task
@@ -10,8 +15,6 @@ Deployed page: https://jason-m-bailey.github.io/javascriptquiz/
 At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
 
 To help familiarize you with these tests and allow you to use the skills covered in this unit, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
-
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
 
 ## User Story
 
@@ -88,7 +91,3 @@ You are required to submit BOTH of the following for review:
 * The URL of the functional, deployed application.
 
 * The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
